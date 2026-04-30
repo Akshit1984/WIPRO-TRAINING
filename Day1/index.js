@@ -17,7 +17,7 @@ console.log("String:", str);
 console.log("Length of string:", str.length);
 console.log("Uppercase:", str.toUpperCase());
 console.log("Lowercase:", str.toLowerCase());
-console.log("Substring (0-5):", str.substring(10, 15));  //15 is not included it is exclusive
+console.log("Substring (0-5):", str.substring(10, 15));   //15 is not included it is exclusive
 
 // Logical operations --> bool
 console.log("a > b:", a > b); // F
