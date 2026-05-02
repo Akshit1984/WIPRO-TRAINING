@@ -14,25 +14,31 @@ function table(num) {
     for (let i = 1; i <= 10; i++) {
         // console.log(num + " x " + i + " = " + (num * i)); // Using string concatenation
         // result += `${num} x ${i} = ${num * i}\n`;
-        result += `${num} * ${i} = ${num*i} fdzsgdsg\t`
+        result += `${num} * ${i} = ${num*i} \t`
     }
     return result;
 }
 console.log(table(5));
 
-function table(num) {
+function table1(num) {
 
     for (let i = 1; i <= 10; i++) {
         console.log(num + " x " + i + " = " + (num * i)); // Using string concatenation
     }
 }
-
+table1(5);
 // console.log(table(5));
 // console.log(table(5)); // Displays the multiplication table for 5
+
+
+
+//Normally we would write a function like this:
 // function sum(a, b) {
 //     return a + b;
 // }
 
+
+// But with arrow functions, we can write it in a more concise way:
 // let sum1 = sum(5, 10);
 let sum = (x, y) => x + y; // Arrow function for addition
 console.log("Sum of 5 and 10:", sum(5, 10)); // 15
@@ -46,6 +52,8 @@ let arr = [1, 2, 3, 4, 5, "Aaryan"];
 // }).forEach(function(abc) {
 //     console.log("Element after * 2:", abc * 2);
 // });
+
+
 
 arr.filter(x => typeof x === "number").map(y => y * 2).forEach(abc => console.log("Element after * 2:", abc * 2));
 // console.log(arr.find(x => x === "Aaryan1")); 
