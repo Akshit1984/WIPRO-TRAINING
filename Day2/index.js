@@ -82,8 +82,8 @@ console.log(Number(strnum));
 console.log(String(5));
 
 let val = "0.6";
-console.log(parseInt(val)); // 0
-console.log(parseFloat(val)); // 0.6
+console.log(parseInt(val)); // 0 it will convert string into integer (wokrs like floor give the lower value)
+console.log(parseFloat(val)); // 0.6 it will convert string into float (give the same number )
 
 // floor [int] -> Low int, parseInt -> type conversion (string -> int)
 let colors = ["red", "green", "blue"];
@@ -111,10 +111,10 @@ console.log(colors); // ["red", "green", "blue"]
 //     }
 // }
 
-// remove by index, obj, [1, length - 2] --> math.random() * (length - 2)
-console.log(colors.splice(0, 1));
-console.log(colors.splice(1, 2));
-console.log(colors.splice(1, 3));
-// console.log(colors.splice(Math.floor(Math.random() * (colors.length - 2)), 1));
-// let str = "Hello World";
-// console.log(str.slice(0, 5)); // "Hello"
+// // remove by index, obj, [1, length - 2] --> math.random() * (length - 2)
+// console.log(colors.splice(0, 1));
+// console.log(colors.splice(1, 2));
+// console.log(colors.splice(1, 3));
+// // console.log(colors.splice(Math.floor(Math.random() * (colors.length - 2)), 1));
+// // let str = "Hello World";
+// // console.log(str.slice(0, 5)); // "Hello"
