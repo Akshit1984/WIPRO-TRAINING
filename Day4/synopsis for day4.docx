@@ -1,0 +1,42 @@
+*******************************************DAY4*****************************************************
+
+We learnt about the Basic Sync function
+
+Sync function is executed one by one 
+
+
+
+
+function getData() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve("Data received");
+        }, 2000);
+    });
+}
+getData().then((data) => {
+    console.log(data);
+}).catch((error) => {
+    console.error("Error:", error);
+});
+
+
+
+
+>>>>Set Time out function
+->> it will print the data one time after some milliseconds
+whatever we have given
+
+setTimeout(() => {
+    console.log("Data received");
+}, 5000);
+
+
+>>>>>>>>>>>setInterval
+->> It will print the data after regular intervals unless we stop it ourself
+
+
+setInterval(() => {
+    console.log("Checking for new data...");
+}, 3000);
+ 
