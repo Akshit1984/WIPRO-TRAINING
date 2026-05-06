@@ -83,12 +83,15 @@ let arr = [1, 2, 3, 4, 5];
 for (let i = 0; i < arr.length; i++) {
     console.log("Elements multiplied by 2", ":", arr[i] * 2);
 }
+
+
 let lengthOfArr = arr.length;
 let i = 0;
 while ( i <lengthOfArr) {
     console.log("Elements multiplied by 2", ":", arr[i] * 2);
     i++;
 }
+
 
 arr.forEach(function(x) {
     console.log("Elements multiplied by 2 ",":", x * 2);
