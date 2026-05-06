@@ -11,13 +11,14 @@ async function getData() {
     });
 }
  
-async function getTodos(url) {
+async function getTodos() {
     let data = await fetch("https://jsonplaceholder.typicode.com/todos"); // cursor is blocked in this line
     data = data.json();
     return data;
 }
  
 // getTodos().then(data => console.log(data));
+console.log(getTodos());
  
 const obj = {
     name: "Aaryan",
@@ -25,8 +26,8 @@ const obj = {
     city: "New York"
 }
  
-console.log(JSON.stringify(obj)); // object -> string
-console.log(JSON.parse('{"name":"Aaryan","age":25,"city":"New York"}')); // string -> object
+// console.log(JSON.stringify(obj)); // object -> string
+// console.log(JSON.parse('{"name":"Aaryan","age":25,"city":"New York"}')); // string -> object
  
 // fetch("https://jsonplaceholder.typicode.com/todos")
 //     .then(res => res.json()) // res -> string -> json)

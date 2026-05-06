@@ -1,0 +1,59 @@
+// await fetch()
+// Sends request to internet
+// Waits for response
+// await res.json()
+// Converts response → JavaScript object
+// .filter()
+// Removes unwanted data
+
+// Example:
+
+// .filter(u => u.age > 25)
+//  .map()
+// Converts data into new format
+
+// Example:
+
+// .map(u => u.name)
+//  console.log()
+// Shows final result
+//  Promise
+// Promise = result of async work (future value)
+
+// Sync  -	Runs step by step
+// Async  -	Runs in background
+// Promise - Handles async result
+// async  -	Creates promise function
+// await  -	Waits for promise
+// Synchronous runs line by line, asynchronous runs in background,
+//  Promise handles async operations, and 
+//  async/await is a cleaner way to work with Promises.
+
+
+// Object-Oriented Programming (OOP)
+// Object-Oriented Programming (OOP) is a programming paradigm based on objects and classes.
+// It helps in organizing code into reusable and structured units.
+//  OOP models real-world entities like users, products, bank accounts, etc.
+
+//  Basic Concepts
+
+// Class → Blueprint/template
+// Object → Instance of class
+// Methods → Functions inside class
+// Properties → Variables inside class
+//  1. Encapsulation
+
+// Encapsulation means hiding data and allowing access only through methods.
+// class Bank {  #balance = 0;  deposit(amount) {    this.#balance += amount;  }  getBalance() {    return this.#balance;  }}
+// Private variables (#) cannot be accessed directly.
+//  2. Inheritance
+// Inheritance allows one class to use properties and methods of another class.
+// class Animal {  speak() {    console.log("Animal speaks");  }}class Dog extends Animal {  speak() {    console.log("Dog barks");  }}
+//  extends is used for inheritance
+// super() calls parent class
+// 3. Polymorphism
+// Polymorphism means same method, different behavior.
+//  Method overriding = runtime polymorphism
+// 4. Abstraction
+// Abstraction means hiding complex implementation and showing only essential features.
+// OOP is a programming approach that uses encapsulation, inheritance, polymorphism, and abstraction to create modular, reusable, and maintainable code.
