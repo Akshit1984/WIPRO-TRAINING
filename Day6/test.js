@@ -20,6 +20,45 @@
 // ];
 // ```
 
+const rawFlights = [
+    "London-Paris:150",
+    "New York-Tokyo:invalid",
+    "Dubai-Mumbai:450",
+    "Berlin-Rome:95"
+];
+
+function cleanFlightData(flightData) {
+    const cleanedData = flightData.map(flight => {
+        const [route, price] = flight.split(':');
+        const [from, to] = route.split('-');
+        const priceNum = Number(price);
+        return {
+            from: from || 'Unknown',
+            to: to || 'Unknown',
+            price: isNaN(priceNum) ? 0 : priceNum
+        };
+    });
+
+    const filteredData = cleanedData.filter(flight => flight.price >= 100 && flight.price <= 500);
+    const sortedData = filteredData.sort((a, b) => a.price - b.price);
+    return JSON.stringify(sortedData);
+}   
+
+
+console.log(cleanFlightData(rawFlights));
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -46,9 +85,222 @@
 // ];
 // ```
 
+// const cart = [
+//     { name: "Smartphone", price: 800, category: "Electronics" },
+//     { name: "Toaster", price: 50, category: "Home" },
+//     { name: "Headphones", price: 250, category: "Electronics" },
+//     { name: "Monitor", price: 150, category: "Electronics" }
+// ];
+
+// function isEligible(product) {
+//     return (product && product.price > 200 && product.category === "Electronics"); 
+// }
+
+
+
+
+ 
+
+
+
+
+
+
+
+const cart = [
+  { name: "Smartphone", price: 800, category: "Electronics" },
+  { name: "Toaster", price: 50, category: "Home" },
+  { name: "Headphones", price: 250, category: "Electronics" },
+  { name: "Monitor", price: 150, category: "Electronics" }
+];
+
+// Callback function
+function isEligible(product) {
+  return (
+    product &&
+    product.price > 200 &&
+    product.category === "Electronics"    
+  );
+}
+
+// Main function
+function applyPromo(cart, promoCallback) {
+
+  let discountedCount = 0;
+  let totalSavings = 0;
+
+  const updatedCart = cart.map(product => {
+
+    if (promoCallback(product)) {
+
+      let oldPrice = product.price;
+      let newPrice = oldPrice - oldPrice * 0.10;
+
+      discountedCount++;
+      totalSavings += oldPrice - newPrice;
+
+      return {
+        ...product,
+        price: newPrice,
+        isDiscounted: true
+      };
+    }
+
+    return {
+      ...product,
+      isDiscounted: false
+    };
+  });
+
+  console.log(
+    `Promotion applied! ${discountedCount} items were discounted for a total saving of $${totalSavings}.`
+  );
+
+  setTimeout(() => {
+    console.log(updatedCart);
+  }, 1000);
+}
+
+// Function call
+applyPromo(cart, isEligible);
+
+
+
+
 
 
 // ### Instructions for Candidates:
 // * Use const and let appropriately.
 // * Ensure the code is clean and handles potential null or undefined values gracefully.
 // * The final output for Question 1 must be a valid JSON string.
+
+
+// ## Question 3: The Movie Stream Analytics
+// **Problem Statement:**
+// You are given an array of raw strings representing movie data from a streaming platform. You need to convert this raw data into a structured format to identify top-performing content.
+// **Requirements:**
+// 1. Parse strings formatted as: "MOVIE_NAME|GENRE|VIEW_COUNT".
+// 2. Convert each string into an object with properties for name, genre, and views.
+// 3. Ensure the views property is an actual Number. If the views data is corrupted or not a number, default it to 0.
+// 4. Create a new list containing only movies from the "Action" or "Sci-Fi" genres with more than 5,000 views.
+// 5. Sort the final list by views in descending order (highest views first).
+// 6. Return the final array as a JSON string.
+// **Input Data Example:**
+// ```javascript
+// const rawMovies = [
+//  "Inception|Sci-Fi|12000",
+//  "The Lion King|Animation|8000",
+//  "Mad Max|Action|invalid",
+//  "The Matrix|Sci-Fi|15000",
+//  "Gladiator|Action|4500"
+// ];
+// ```
+
+
+const rawMovies = [
+  "Inception|Sci-Fi|12000",
+  "The Lion King|Animation|8000",
+  "Mad Max|Action|invalid",
+  "The Matrix|Sci-Fi|15000",
+  "Gladiator|Action|4500"
+];
+
+function movieAnalytics(movieData) {
+
+  const cleanedMovies = movieData.map(movie => {
+
+    const [name, genre, views] = movie.split("|");
+
+    const viewCount = Number(views);
+
+    return {
+      name: name || "Unknown",
+      genre: genre || "Unknown",
+      views: isNaN(viewCount) ? 0 : viewCount
+    };
+  });
+
+  const filteredMovies = cleanedMovies.filter(movie =>
+    (movie.genre === "Action" || movie.genre === "Sci-Fi") &&
+    movie.views > 5000
+  );
+
+  const sortedMovies = filteredMovies.sort((a, b) => b.views - a.views);
+
+  return JSON.stringify(sortedMovies, null, 2);
+}
+
+console.log(movieAnalytics(rawMovies));
+
+
+
+
+
+
+
+
+
+
+
+// ### Question 4: The Automated Payroll Processor
+// **Problem Statement:**
+// You are developing a payroll system. You need to write a function calculatePayroll(employees, taxCallback) that applies tax deductions and calculates final payouts.
+// **Requirements:**
+// 1. Create a callback function (taxLogic) that determines the tax rate: If a salary is > 5000, the tax is 20%. Otherwise, the tax is 10%.
+// 2. The calculatePayroll function should use this callback to process each employee.
+// 3. Calculate the netSalary (Salary minus Tax). Add a property status to each employee: If the net salary is > 4000, set status to "Premium", otherwise set it to "Standard".
+// 4. Use a Template Literal to log: "Payroll Processed: Total Net Payout is $[Z] for [X] employees."
+// 5. The function must use setTimeout to wait 2000ms before returning the final array of processed employee objects.
+// **Input Data Example:**
+// ```javascript
+// const employees = [
+//  { id: 101, name: "Alice", salary: 6000 },
+//  { id: 102, name: "Bob", salary: 3500 },
+//  { id: 103, name: "Charlie", salary: 5200 }
+// ];
+// ```
+
+
+
+
+const employees = [
+  { id: 101, name: "Alice", salary: 6000 },
+  { id: 102, name: "Bob", salary: 3500 },
+  { id: 103, name: "Charlie", salary: 5200 }
+];
+
+function taxLogic(salary) {
+  return salary > 5000 ? 0.20 : 0.10;
+}
+
+function calculatePayroll(employees, taxCallback) {
+
+  let totalNetPayout = 0;
+
+  const processedEmployees = employees.map(employee => {
+
+    const taxRate = taxCallback(employee.salary);
+
+    const tax = employee.salary * taxRate;
+
+    const netSalary = employee.salary - tax;
+
+    totalNetPayout += netSalary;
+
+    return {
+      ...employee,
+      netSalary: netSalary,
+      status: netSalary > 4000 ? "Premium" : "Standard"
+    };
+  });
+
+  console.log(
+    `Payroll Processed: Total Net Payout is $${totalNetPayout} for ${employees.length} employees.`
+  );
+
+  setTimeout(() => {
+    console.log(processedEmployees);
+  }, 2000);
+}
+
+calculatePayroll(employees, taxLogic);
