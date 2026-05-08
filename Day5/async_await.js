@@ -11,14 +11,13 @@ async function getData() {
     });
 }
  
-async function getTodos() {
+async function getTodos(url) {
     let data = await fetch("https://jsonplaceholder.typicode.com/todos"); // cursor is blocked in this line
     data = data.json();
     return data;
 }
  
 // getTodos().then(data => console.log(data));
-console.log(getTodos());
  
 const obj = {
     name: "Aaryan",
