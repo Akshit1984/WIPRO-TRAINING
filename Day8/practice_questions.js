@@ -101,16 +101,16 @@ console.log(celsiusToFahrenheit1(37));
 function calculator(num1, num2, operation){
     switch (operation) {
         case '+':
-            return num1 + num2; // Addition
+            return num1 + num2; 
         case '-':
-            return num1 - num2; // Subtraction
+            return num1 - num2; 
         case '*':
-            return num1 * num2; // Multiplication
+            return num1 * num2; 
         case '/':
             if (num2 !== 0) {
-                return num1 / num2; // Division
+                return num1 / num2; 
             } else {
-                return "Error: Division by zero is not allowed.";
+                return "Error";
             }  
         default:
             return "Invalid operation";
@@ -120,6 +120,16 @@ function calculator(num1, num2, operation){
 calculate = calculator(7855, 5, '*');
 console.log(calculate);
 console.log(calculator(250, 5, '+')); 
+
+
+const calc = {
+    sum: (...op) => op.reduce((acc, curr) => acc + curr, 0),
+    sub: (...op) => op.reduce((acc, curr) => acc - curr, 0),
+    mul: (...op) => op.reduce((acc, curr) => acc * curr, 1),
+    div: (...op) => op.reduce((acc, curr) => acc / curr, 1),
+};
+ 
+console.log(calc.sum(5, 5, 10, 20));
 
 
 // Question 5. Write a program that takes a user’s birth year and calculates age.
@@ -190,10 +200,26 @@ console.log(countVowels("Hello, World!"));
 }
 
 // Print all prime numbers between 1 and 100
+
 function isPrime(a) {
     if (a <= 1) return false;
-    for (let i = 2; i <= Math.sqrt(a); i++) {
+    for (let i = 2; i <= Math.sqrt(a); i++) { 
         if (a % i === 0) return false;
     }
     return true;
 }
+
+
+// Create a function that returns the greatest of three numbers
+
+function greatestOfThree(num1, num2, num3) {
+    if (num1 >= num2 && num1 >= num3) {
+        return num1; 
+    } else if (num2 >= num1 && num2 >= num3) {
+        return num2; 
+    } else {
+        return num3; 
+    }
+}
+
+
