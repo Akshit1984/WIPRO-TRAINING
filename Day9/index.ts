@@ -62,6 +62,10 @@ console.log("Coordinates:", coordinates);
 let arr: number[] = [1, 2, 3]; // array of numbers
 console.log("Array:", arr);
 
+
+
+//declaration merging
+
 // function identity<T>(arg: T): T {
 //     return arg;
 // }
