@@ -402,3 +402,5 @@ const carData: CarApi = {
 console.log("Mapped API Response:");
 
 console.log(carData);
+
+
